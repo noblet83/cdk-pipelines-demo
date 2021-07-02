@@ -17,13 +17,13 @@ class PipelineStack(core.Stack):
     pipeline = pipelines.CdkPipeline(self, 'Pipeline',
       cloud_assembly_artifact=cloud_assembly_artifact,
       pipeline_name='WebinarPipeline',
-
+      
       source_action=cpactions.GitHubSourceAction(
         action_name='GitHub',
         output=source_artifact,
         oauth_token=core.SecretValue.secrets_manager('github-token'),
-        owner='OWNER**REPLACEME',
-        repo='REPO**REPLACEME',
+        owner='Thomas Noble',
+        repo='my-pipeline-demo',
         trigger=cpactions.GitHubTrigger.POLL),
 
       synth_action=pipelines.SimpleSynthAction(
